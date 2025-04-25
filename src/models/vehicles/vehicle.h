@@ -38,6 +38,8 @@ struct Vehicle {
     /// Fügt eine neue Station zur Route hinzu.
     void addStop(std::string const& stop);
 
+    bool reservationIsValid(Reservation const& reservation);
+
     /// Fügt eine Reservierung für einen Sitzplatz hinzu.
     /// Erwartet den Wagen-Index, die Sitzplatz-ID und die Reservierung.
     void addReservation(size_t coachIndex, std::string const& seatId, Reservation const& reservation);
