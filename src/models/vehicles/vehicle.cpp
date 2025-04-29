@@ -103,13 +103,22 @@ void Vehicle::arriveAtStop()
     //Eine Position weiter gehen
 
     //Muss außerhalb der funktion passieren???
-    pos++; 
+    //erst returnen => Erhöhung ist ein Seiteneffekt, muss vor die funktion geschrieben werden
+    pos++;
+    
+    //++pos wurde erst erhöhen und dann returnen => Könnte direkt in die Funktion geschreiben werden
     setCurrentStop(pos);
 }
 
 void Vehicle::departFromStop()
 {
-    // TODO
+    size_t pos = getPosition(next_stop, route);
+
+    setCurrentStop(pos);
+
+    for (auto &coach_elem : coaches){
+        coach_elem.updateCeilingDisplays(next_stop);
+    }
 }
 
 void Vehicle::updateSeatDisplays()

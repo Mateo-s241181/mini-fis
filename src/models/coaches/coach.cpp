@@ -22,7 +22,7 @@ void Coach::updateCeilingDisplays(std::string const& newText)
 {
     //WICHTIG: el als reference (&el) passen. Ansonsten Updated updateText() in der Schleife nur die Kopie von el
     for (auto &el : ceiling_displays){
-        el.updateText(newText);
+        el.updateText("Nächster Halt: " + newText);
     }
 }
 

@@ -43,8 +43,8 @@ TEST_CASE("update_ceiling_displays", "[coach]")
 
     c.updateCeilingDisplays("Updated Ceiling Text");
 
-    REQUIRE(c.ceiling_displays[0].getText() == "Updated Ceiling Text");
-    REQUIRE(c.ceiling_displays[1].getText() == "Updated Ceiling Text");
+    REQUIRE(c.ceiling_displays[0].getText() == "Nächster Halt: Updated Ceiling Text");
+    REQUIRE(c.ceiling_displays[1].getText() == "Nächster Halt: Updated Ceiling Text");
 }
 
 TEST_CASE("update_seat_display", "[coach]")
