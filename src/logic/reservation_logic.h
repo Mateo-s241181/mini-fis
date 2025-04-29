@@ -25,4 +25,21 @@ Reservation get_next_reservation(std::vector<Reservation> const& reservations, s
 /// Die Reservierung darf außerdem nicht leer sein.
 bool is_valid_for_route(Reservation const& reservation, std::vector<std::string> const& stops);
 
+
+
+template <typename T>
+
+/// returns Position after last position if x not in v
+size_t getPosition(T x, std::vector<T> v){
+
+    for (size_t i = 0; i < v.size(); i++){
+
+        if(v[i] == x){
+            return i;
+        }
+    }
+
+    return v.size();
+}
+
 #endif

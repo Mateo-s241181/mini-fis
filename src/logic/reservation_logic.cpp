@@ -34,16 +34,3 @@ bool is_valid_for_route(Reservation const& reservation, std::vector<std::string>
 }
 
 
-//Hilfsfunktion => Für get_next_reservation gedacht
-//Placeholder Type T
-template <typename T>
-
-size_t getPosition(T x, std::vector<T> v){
-
-    for (size_t i = 0; i < v.size(), i++){
-
-        if(v[i] == x){
-            return i;
-        }
-    }
-}

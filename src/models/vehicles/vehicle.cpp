@@ -1,5 +1,6 @@
 #include "vehicle.h"
 #include <iostream>
+#include <algorithm>
 
 Vehicle::Vehicle()
     : next_stop(""),
@@ -53,17 +54,57 @@ void Vehicle::showAllDisplays() const
 
 void Vehicle::showAllReservations() const
 {
+    //durch alle coaches durchrangen
+    for (auto map_elem : reservations){
+
+        //alle paare einer unordered map accessem
+        for(auto pair_elem : map_elem){
+
+            //SeatId zur Identifikation ausgeben
+            std::cout << "SeatId: " << pair_elem.first << '\n' << '\n';
+
+            //den reservationsvektor der seatId durchgehen
+            for(auto reservation_elem : pair_elem.second){
+
+                //Jede Reservation anzeigen
+                reservation_elem.getDisplayText();
+            }
+        }
+    }
     return;
 }
 
+//TODO:
+//Test schreiben für showAllReservations
+
 void Vehicle::setCurrentStop(size_t pos)
 {
-    // TODO
+
+    next_stop = pos < route.size() ? route[pos] : "" ;
+
+    //genau das gleiche wie:
+    
+    // if(pos < route.size()){
+    //     next_stop = route[pos];
+    //     return;
+    // }
+    // next_stop = "";
 }
 
 void Vehicle::arriveAtStop()
 {
-    // TODO
+    size_t pos = getPosition(next_stop, route);
+
+    //Station, an der man angekommen ist auf den displays anzeigen
+    for (auto &coach_elem : coaches){
+        coach_elem.updateCeilingDisplays(next_stop);
+    }
+
+    //Eine Position weiter gehen
+
+    //Muss außerhalb der funktion passieren???
+    pos++; 
+    setCurrentStop(pos);
 }
 
 void Vehicle::departFromStop()

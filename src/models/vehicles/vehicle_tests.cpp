@@ -98,7 +98,17 @@ TEST_CASE("arrive_at_stop", "[vehicle]")
     v.addStop("B");
     v.setCurrentStop(0);
 
+    size_t pos = getPosition(v.route[0], v.route);
+
+    REQUIRE(pos == 0);
+
     v.arriveAtStop();
+
+    pos++;
+
+    pos = getPosition(v.route[pos], v.route);
+
+    REQUIRE(pos == 1);
 
     REQUIRE(v.coaches[0].ceiling_displays[0].getText() == "A");
     REQUIRE(v.next_stop == "B");

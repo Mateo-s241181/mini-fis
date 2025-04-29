@@ -23,3 +23,18 @@ TEST_CASE("is_valid_for_route", "[is_valid_for_route]")
     REQUIRE(is_valid_for_route(r7, stops) == false);
     REQUIRE(is_valid_for_route(r8, stops) == false);
 }
+
+TEST_CASE("find position", "[find_position]")
+{
+
+    std::vector<int> v1 {0, 1, 2, 3, 4, 5};
+    std::vector<int> v2 {0, 7, 2, 3, 4, 5};
+    std::vector<int> v3 {0, 1, 2, 9, 4, 5};
+    std::vector<int> v4 {0, 1, 2, 3, 123, 5};
+
+    REQUIRE(getPosition(1, v1) == 1);
+    REQUIRE(getPosition(5, v2) == 5);
+    REQUIRE(getPosition(7, v3) == 6);
+    REQUIRE(getPosition(123, v4) == 4);
+
+}
