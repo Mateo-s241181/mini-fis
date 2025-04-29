@@ -110,7 +110,7 @@ TEST_CASE("arrive_at_stop", "[vehicle]")
 
     REQUIRE(pos == 1);
 
-    REQUIRE(v.coaches[0].ceiling_displays[0].getText() == "A");
+    REQUIRE(v.coaches[0].ceiling_displays[0].getText() == "Nächster Halt: A");
     REQUIRE(v.next_stop == "B");
 }
 
