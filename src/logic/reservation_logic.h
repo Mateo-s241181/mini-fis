@@ -25,6 +25,8 @@ Reservation get_next_reservation(std::vector<Reservation> const& reservations, s
 /// Die Reservierung darf außerdem nicht leer sein.
 bool is_valid_for_route(Reservation const& reservation, std::vector<std::string> const& stops);
 
+// void sort_reservations(std::vector<Reservation> *reservations, std::vector<std::string> const& stops);
+
 
 
 template <typename T>

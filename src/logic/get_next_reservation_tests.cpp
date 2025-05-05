@@ -14,6 +14,8 @@ TEST_CASE("get_next_reservation", "[get_next_reservation]")
     REQUIRE(n1.from == "A");
     REQUIRE(n1.to == "B");
 
+    //Warum ist die reservation von a nach b noch bei b gültig und nicht die reservation von b nach c??
+
     Reservation n2 = get_next_reservation(reservations, "B", stops);
     REQUIRE(n2.from == "A");
     REQUIRE(n2.to == "B");
